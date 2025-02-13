@@ -12,16 +12,19 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.11.2",
     "@t3-oss/env-nextjs": "^0.12.0",
     "drizzle-orm": "^0.39.3",
     "next": "15.1.7",
     "pg": "^8.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
