@@ -1,7 +1,12 @@
 import React from "react";
+import { SignUp } from "@clerk/nextjs";
 
-const SignUp = () => {
-  return <div>sign up</div>;
+const SignUpComponent = () => {
+  return (
+    <div>
+      <SignUp />
+    </div>
+  );
 };
 
-export default SignUp;
+export default SignUpComponent;
