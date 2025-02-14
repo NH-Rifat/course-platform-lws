@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button } from "@/components/ui/button";
+import { canAccessAdminPages } from "@/permissions/general";
+import { getCurrentUser } from "@/services/clerk";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { ReactNode, Suspense } from "react";
@@ -24,13 +27,7 @@ function Navbar() {
         >
           Web Dev Simplified
         </Link>
-        <Suspense
-          fallback={
-            <>
-              <h1>Loading...</h1>
-            </>
-          }
-        >
+        <Suspense>
           <SignedIn>
             {/* <AdminLink /> */}
             <Link
@@ -65,5 +62,16 @@ function Navbar() {
         </Suspense>
       </nav>
     </header>
+  );
+}
+
+async function AdminLink() {
+  const user = await getCurrentUser();
+  if (!canAccessAdminPages(user)) return null;
+
+  return (
+    <Link className="hover:bg-accent/10 flex items-center px-2" href="/admin">
+      Admin
+    </Link>
   );
 }
